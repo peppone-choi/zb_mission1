@@ -2,6 +2,10 @@
 <%@ page import="com.zb.zerobase_mission1.OpenApi" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.time.LocalTime" %>
+<%@ page import="com.zb.zerobase_mission1.HistoryService" %>
+<%@ page import="com.zb.zerobase_mission1.History" %>
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 
@@ -50,7 +54,15 @@
 
         WifiListDbService wlds = new WifiListDbService();
         Map<OpenApi, Double> dbWifiList = wlds.dbWifiList(Double.parseDouble(request.getParameter("lat")), Double.parseDouble(request.getParameter("lnt")));
-        //wlds.dbHistory(request.getParameter("lat"), request.getParameter("lnt"), String.valueOf(LocalTime.now())); 해당 문구는 나중에 한번 만져보자. 왜이런거지????
+        System.out.println(request.getParameter("lat") + " " + request.getParameter("lnt"));
+
+        HistoryService historyService = new HistoryService();
+
+        LocalDateTime dateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        History history = new History(request.getParameter("lat"), request.getParameter("lnt"), String.valueOf(dateTime.format(formatter)));
+        historyService.userHistoryUpdate(history);
         for (Map.Entry<OpenApi, Double> openApi:dbWifiList.entrySet()) {
 %>
     <tr>
