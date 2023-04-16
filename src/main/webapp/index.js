@@ -1,4 +1,3 @@
-
 let lat;
 let lnt;
 
