@@ -50,7 +50,7 @@
 
         WifiListDbService wlds = new WifiListDbService();
         Map<OpenApi, Double> dbWifiList = wlds.dbWifiList(Double.parseDouble(request.getParameter("lat")), Double.parseDouble(request.getParameter("lnt")));
-        //wlds.dbHistory(request.getParameter("lat"), request.getParameter("lnt"), String.valueOf(LocalTime.now())); 해당 문구는 나중에 한번 만져보자.
+        //wlds.dbHistory(request.getParameter("lat"), request.getParameter("lnt"), String.valueOf(LocalTime.now())); 해당 문구는 나중에 한번 만져보자. 왜이런거지????
         for (Map.Entry<OpenApi, Double> openApi:dbWifiList.entrySet()) {
 %>
     <tr>
