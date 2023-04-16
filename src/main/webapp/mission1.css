@@ -8,7 +8,7 @@
     width: 100%;
 }
 
-#wifi-table td, #customers th {
+#wifi-table td, #wifi-table th {
     border: 1px solid #ddd;
     padding: 8px;
 }
@@ -20,7 +20,7 @@
 #wifi-table th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align:center;
     background-color: #04AA6D;
     color: white;
 }
