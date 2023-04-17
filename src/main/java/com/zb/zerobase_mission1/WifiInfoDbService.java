@@ -1,23 +1,19 @@
 package com.zb.zerobase_mission1;
 
 import java.sql.*;
-import java.sql.Date;
-import java.time.LocalTime;
 import java.util.*;
 
-public class WifiListDbService {
+public class WifiInfoDbService {
 
-    public Map<OpenApi, Double> dbWifiList(double lat, double lnt){
+    public Map<OpenApi, Double> dbWifiList(int no){
         // DB 접속 (IP, Port, 계정, Passwort, 인스턴스)
-
-        Map<OpenApi, Double> wifiList = new LinkedHashMap<>();
 
         String url = "jdbc:mariadb://localhost:3306/testdb1";
         String dbUserID = "testuser3";
         String dbPassword = "3c2s1q!@#$";
-
+        OpenApi openApi = new OpenApi();
         // 드라이버 로드
-
+        Map<OpenApi, Double> wifiInfo = new LinkedHashMap<>();
         try {
             Class.forName("org.mariadb.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -38,27 +34,29 @@ public class WifiListDbService {
 
 
             // 쿼리 실행
-            sql = "SELECT *,\n" +
-                    "\n" +
-                    "\t(6371*ACOS(COS(RADIANS('37.4831154'))\n" +
-                    "    \t*COS(RADIANS(LAT))\n" +
-                    "        *COS(radians(LNT)-RADIANS('126.798553'))\n" +
-                    "        +SIN(RADIANS('37.4831154'))*SIN(RADIANS(LAT))))\n" +
+            sql = "SELECT *," +
+                    "(1000*6371*ACOS(COS(RADIANS('37.4831154'))" +
+                    "    *COS(RADIANS(LAT))" +
+                    "        *COS(radians(LNT)-RADIANS('126.798553'))" +
+                    "        +SIN(RADIANS('37.4831154'))*SIN(RADIANS(LAT))))" +
                     "\tAS DISTANCE\n" +
                     "\n" +
-                    "FROM wifitable order by DISTANCE limit 20";
+                    "FROM wifitable where WIFI_ID = ?";
 
             prepeaedStatement = connection.prepareStatement(sql);
+
+            prepeaedStatement.setInt(1, no);
 
             rs = prepeaedStatement.executeQuery();
 
 //            PreparedStatement preparedStatement = null; 주로 이거 사용
 //            CallableStatement callableStatement = null;
 
+
+
             // 결과 수행
 
             while (rs.next()){
-                int WIFI_ID = rs.getInt("WIFI_ID");
                 String X_SWIFI_MGR_NO = rs.getString("X_SWIFI_MGR_NO");
                 String X_SWIFI_WRDOFC = rs.getString("X_SWIFI_WRDOFC");
                 String X_SWIFI_MAIN_NM = rs.getString("X_SWIFI_MAIN_NM");
@@ -77,8 +75,7 @@ public class WifiListDbService {
                 String WORK_DTTM = rs.getString("WORK_DTTM");
                 double distance = rs.getDouble("distance");
 
-                OpenApi openApi = new OpenApi();
-                openApi.setWIFI_ID(WIFI_ID);
+
                 openApi.setX_SWIFI_MGR_NO(X_SWIFI_MGR_NO);
                 openApi.setX_SWIFI_WRDOFC(X_SWIFI_WRDOFC);
                 openApi.setX_SWIFI_MAIN_NM(X_SWIFI_MAIN_NM);
@@ -95,9 +92,7 @@ public class WifiListDbService {
                 openApi.setLAT(LAT);
                 openApi.setLNT(LNT);
                 openApi.setWORK_DTTM(WORK_DTTM);
-
-                wifiList.put(openApi, (Math.round(distance* 1000) / 1000.0));
-
+                wifiInfo.put(openApi, (Math.round(distance* 1000) / 1000.0));
             }
 
             // 객체 연결 해제
@@ -130,7 +125,7 @@ public class WifiListDbService {
                 throw new RuntimeException(e);
             }
         }
-        return wifiList;
+        return wifiInfo;
     }
 
 }

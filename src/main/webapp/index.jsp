@@ -69,7 +69,7 @@
         <td><%=openApi.getValue().toString()%></td>
         <td><%=openApi.getKey().getX_SWIFI_MGR_NO()%></td>
         <td><%=openApi.getKey().getX_SWIFI_WRDOFC()%></td>
-        <td><%=openApi.getKey().getX_SWIFI_MAIN_NM()%></td>
+        <td><a href="detail.jsp?wifi_id=<%=openApi.getKey().getWIFI_ID()%>"><%=openApi.getKey().getX_SWIFI_MAIN_NM()%></a></td>
         <td><%=openApi.getKey().getX_SWIFI_ADRES1()%></td>
         <td><%=openApi.getKey().getX_SWIFI_ADRES2()%></td>
         <td><%=openApi.getKey().getX_SWIFI_INSTL_FLOOR()%></td>

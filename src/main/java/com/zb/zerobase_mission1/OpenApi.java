@@ -21,6 +21,8 @@ package com.zb.zerobase_mission1;
  */
 
 public class OpenApi {
+
+    private int WIFI_ID;
     private String X_SWIFI_MGR_NO;
     private String X_SWIFI_WRDOFC;
     private String X_SWIFI_MAIN_NM;
@@ -164,5 +166,13 @@ public class OpenApi {
 
     public void setWORK_DTTM(String WORK_DTTM) {
         this.WORK_DTTM = WORK_DTTM;
+    }
+
+    public int getWIFI_ID() {
+        return WIFI_ID;
+    }
+
+    public void setWIFI_ID(int WIFI_ID) {
+        this.WIFI_ID = WIFI_ID;
     }
 }
