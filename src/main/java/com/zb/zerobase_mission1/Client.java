@@ -1,15 +1,11 @@
 package com.zb.zerobase_mission1;
 
 import com.google.gson.*;
-import com.google.gson.annotations.JsonAdapter;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import java.lang.reflect.Type;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Client {
     public Responses getApiResponse(int first_count, int last_count) throws IOException {
