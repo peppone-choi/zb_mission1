@@ -23,9 +23,11 @@
 <div style="padding: 2px 0px 5px 0px"><a href="index.jsp">홈</a> | <a href="history.jsp">위치 히스토리 목록</a> | <a href="load-wifi.jsp">OpenApi 와이파이 정보 가져오기</a> | <a href="#">북마크 보기</a> | <a href="#">북마크 그룹 관리</a> </div>
 <div style="padding: 2px 0px 10px 0px">
     <form action="index.jsp" method="get">
-        LAT : <input class="lat" name="lat" value="0.0" placeholder="0.0"></input> LNT : <input class="lnt" name="lnt" value="0.0" placeholder="0.0"></input> <button id="getGeo" type="button" onclick = "getPosition()">내 위치 가져오기</button> <input type="submit" value="근처 WIFI 정보 보기">
+        LAT : <input class="lat" name="lat" value="<%if(request.getParameter("lat") == null){out.write("0.0");}else{out.write(request.getParameter("lat"));}%>" placeholder="0.0"></input> LNT : <input class="lnt" name="lnt" value="<%if(request.getParameter("lnt") == null){out.write("0.0");}else{out.write(request.getParameter("lnt"));}%>" placeholder="0.0"></input> <button id="getGeo" type="button" onclick = "getPosition()">내 위치 가져오기</button> <input type="submit" value="근처 WIFI 정보 보기">
     </form>
 </div>
+
+
 <table id="wifi-table">
     <tr>
         <th style="text-align:center">거리(Km)</th>
@@ -54,7 +56,6 @@
 
         WifiListDbService wlds = new WifiListDbService();
         Map<OpenApi, Double> dbWifiList = wlds.dbWifiList(Double.parseDouble(request.getParameter("lat")), Double.parseDouble(request.getParameter("lnt")));
-        System.out.println(request.getParameter("lat") + " " + request.getParameter("lnt"));
 
         HistoryService historyService = new HistoryService();
 
