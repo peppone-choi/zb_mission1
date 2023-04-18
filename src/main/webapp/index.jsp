@@ -20,7 +20,7 @@
 <p>
 
 <h1>와이파이 정보 구하기</h1>
-<div style="padding: 2px 0px 5px 0px"><a href="index.jsp">홈</a> | <a href="history.jsp">위치 히스토리 목록</a> | <a href="load-wifi.jsp">OpenApi 와이파이 정보 가져오기</a> | <a href="#">북마크 보기</a> | <a href="#">북마크 그룹 관리</a> </div>
+<div style="padding: 2px 0px 5px 0px"><a href="index.jsp">홈</a> | <a href="history.jsp">위치 히스토리 목록</a> | <a href="load-wifi.jsp">OpenApi 와이파이 정보 가져오기</a> | <a href="bookmark-list.jsp">북마크 보기</a> | <a href="bookmark-group.jsp">북마크 그룹 관리</a> </div>
 <div style="padding: 2px 0px 10px 0px">
     <form action="index.jsp" method="get">
         LAT : <input class="lat" name="lat" value="<%if(request.getParameter("lat") == null){out.write("0.0");}else{out.write(request.getParameter("lat"));}%>" placeholder="0.0"></input> LNT : <input class="lnt" name="lnt" value="<%if(request.getParameter("lnt") == null){out.write("0.0");}else{out.write(request.getParameter("lnt"));}%>" placeholder="0.0"></input> <button id="getGeo" type="button" onclick = "getPosition()">내 위치 가져오기</button> <input type="submit" value="근처 WIFI 정보 보기">

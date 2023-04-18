@@ -1,7 +1,6 @@
 <%@ page import="com.zb.zerobase_mission1.WifiInfoDbService" %>
 <%@ page import="com.zb.zerobase_mission1.OpenApi" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="java.util.Set" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 
@@ -14,15 +13,16 @@
 <p>
 
 <h1>와이파이 정보 구하기</h1>
-<div style="padding: 2px 0px 5px 0px"><a href="index.jsp">홈</a> | <a href="history.jsp">위치 히스토리 목록</a> | <a href="load-wifi.jsp">OpenApi 와이파이 정보 가져오기</a> | <a href="#">북마크 보기</a> | <a href="#">북마크 그룹 관리</a> </div>
+<div style="padding: 2px 0px 5px 0px"><a href="index.jsp">홈</a> | <a href="history.jsp">위치 히스토리 목록</a> | <a href="load-wifi.jsp">OpenApi 와이파이 정보 가져오기</a> | <a href="bookmark-list.jsp">북마크 보기</a> | <a href="#">북마크 그룹 관리</a> </div>
 <div style="padding: 2px 0px 10px 0px">
+
 
 
     <form>
         <select>
-            <option value="">북마크 그룹 이름 선택</option>
+            <option value="0">북마크 그룹 이름 선택</option>
         </select>
-        <button id="addBookmark" onclick = "location.href = '#'">북마크 추가하기</button>
+        <button id="addBookmark" onclick = "location.href = 'bookmark-list.jsp'">북마크 추가하기</button>
     </form>
 </div>
 <table id="wifi-table">
