@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.zb.zerobase_mission1.BookmarkService" %><%--
   Created by IntelliJ IDEA.
   User: 최병호
   Date: 2023-04-18
@@ -12,9 +12,12 @@
 </head>
 <body>
 <%
-
-
-
+    request.setCharacterEncoding("utf-8");
+    int bookmarkGroupId = Integer.parseInt(request.getParameter("bookmark_group_id"));
+    int wifiId = Integer.parseInt(request.getParameter("wifi_id"));
+    BookmarkService bs = new BookmarkService();
+    bs.bookmarkUpdate(wifiId, bookmarkGroupId);
+    response.sendRedirect("detail.jsp?wifi_id=" + wifiId);
 %>
 </body>
 </html>

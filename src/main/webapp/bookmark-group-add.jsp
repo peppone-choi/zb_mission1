@@ -22,8 +22,10 @@
 <table id="wifi-table">
 <%
 %>
-    <tr><th>북마크 이름</th><td>-</td></tr>
-    <tr><th>순서</th><td>-</td></tr>
+    <form action="bookmarkgroupinsertback.jsp" method="post">
+    <tr><th>북마크 이름</th><td><input type="text" name="name" value=""></td></tr>
+    <tr><th>순서</th><td><input type="text" name="order" value=""></td></tr>
+    <tr><td colspan="2" style="text-align: center"><input type="submit" value="추가"></td></tr>
 <%
 %>
 </table>

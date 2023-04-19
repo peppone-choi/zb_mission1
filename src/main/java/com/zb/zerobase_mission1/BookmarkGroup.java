@@ -1,7 +1,7 @@
 package com.zb.zerobase_mission1;
 
 public class BookmarkGroup {
-    private int bookmarkId;
+    private int bookmarkGroupId;
 
     private String bookmarkGroupName;
 
@@ -9,23 +9,22 @@ public class BookmarkGroup {
 
     private String bookmarkGroupMakeDay;
 
-    private String BookmartGroupCorrectionDay;
+    private String BookmarkGroupCorrectionDay;
 
-
-    public BookmarkGroup(int bookmarkId, String bookmarkGroupName, int order, String bookmarkGroupMakeDay, String bookmartGroupCorrectionDay) {
-        this.bookmarkId = bookmarkId;
+    public BookmarkGroup(int bookmarkGroupId, String bookmarkGroupName, int order, String bookmarkGroupMakeDay, String bookmarkGroupCorrectionDay) {
+        this.bookmarkGroupId = bookmarkGroupId;
         this.bookmarkGroupName = bookmarkGroupName;
         this.order = order;
         this.bookmarkGroupMakeDay = bookmarkGroupMakeDay;
-        BookmartGroupCorrectionDay = bookmartGroupCorrectionDay;
+        BookmarkGroupCorrectionDay = bookmarkGroupCorrectionDay;
     }
 
-    public int getBookmarkId() {
-        return bookmarkId;
+    public int getBookmarkGroupId() {
+        return bookmarkGroupId;
     }
 
-    public void setBookmarkId(int bookmarkId) {
-        this.bookmarkId = bookmarkId;
+    public void setBookmarkGroupId(int bookmarkGroupId) {
+        this.bookmarkGroupId = bookmarkGroupId;
     }
 
     public String getBookmarkGroupName() {
@@ -52,11 +51,11 @@ public class BookmarkGroup {
         this.bookmarkGroupMakeDay = bookmarkGroupMakeDay;
     }
 
-    public String getBookmartGroupCorrectionDay() {
-        return BookmartGroupCorrectionDay;
+    public String getBookmarkGroupCorrectionDay() {
+        return BookmarkGroupCorrectionDay;
     }
 
-    public void setBookmartGroupCorrectionDay(String bookmartGroupCorrectionDay) {
-        BookmartGroupCorrectionDay = bookmartGroupCorrectionDay;
+    public void setBookmarkGroupCorrectionDay(String bookmarkGroupCorrectionDay) {
+        BookmarkGroupCorrectionDay = bookmarkGroupCorrectionDay;
     }
 }

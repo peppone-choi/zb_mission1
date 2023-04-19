@@ -60,7 +60,7 @@
         HistoryService historyService = new HistoryService();
 
         LocalDateTime dateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 
         History history = new History(request.getParameter("lat"), request.getParameter("lnt"), String.valueOf(dateTime.format(formatter)));
         historyService.userHistoryUpdate(history);
