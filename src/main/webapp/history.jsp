@@ -29,7 +29,7 @@ List<History> userHistroyList = historyService.userHistroyList();
         <td><%=history.getLat()%></td>
         <td><%=history.getLnt()%></td>
         <td><%=history.getLocalTime()%></td>
-        <td><form><input type="button" value="삭제"></form></td>
+        <td><form><input type="button" value="삭제" onclick="document.location.href='historydeleteback.jsp?id=<%=history.getId()%>'"></form></td>
     </tr>
 <%    }
 

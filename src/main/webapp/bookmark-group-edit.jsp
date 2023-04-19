@@ -2,6 +2,8 @@
 <%@ page import="com.zb.zerobase_mission1.OpenApi" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.Set" %>
+<%@ page import="com.zb.zerobase_mission1.BookmarkGroupService" %>
+<%@ page import="com.zb.zerobase_mission1.BookmarkGroup" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 
@@ -21,11 +23,15 @@
 </div>
 <table id="wifi-table">
 <%
+    BookmarkGroupService bgs = new BookmarkGroupService();
+    int id = Integer.parseInt(request.getParameter("id"));
+    BookmarkGroup bg = bgs.bookmarkGroupSelect(id);
 %>
-    <tr><th>북마크 이름</th><td>-</td></tr>
-    <tr><th>순서</th><td>-</td></tr>
-<%
-%>
+    <form action="bookmarkgroupupdateback.jsp" method="post">
+    <tr><th>북마크 이름</th><td><input type="text" name="name" value="<%=bg.getBookmarkGroupName()%>"></td></tr>
+    <tr><th>순서</th><td><input type="text" name="order" value="<%=bg.getOrder()%>"><input hidden="hidden" name="no" value="<%=bg.getBookmarkGroupId()%>"></td></tr>
+        <tr><td colspan="2" style="text-align: center"><a href="bookmark-group.jsp">돌아가기</a> | <input type="submit" value="수정"></td></tr>
+    </form>
 </table>
 
 </body>

@@ -42,4 +42,13 @@ public class History {
     public void setLocalTime(String localTime) {
         this.localTime = localTime;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }
+
