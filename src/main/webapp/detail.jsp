@@ -51,8 +51,8 @@
     <tr><th>설치년도</th><td><%=openApi.getKey().getX_SWIFI_CNSTC_YEAR()%></td></tr>
     <tr><th>실내외구분</th><td><%=openApi.getKey().getX_SWIFI_INOUT_DOOR()%></td></tr>
     <tr><th>WIFI접속환경</th><td><%=openApi.getKey().getX_SWIFI_REMARS3()%></td></tr>
-    <tr><th>X좌표</th><td><%=openApi.getKey().getLAT()%></td></tr>
-    <tr><th>Y좌표</th><td><%=openApi.getKey().getLNT()%></td></tr>
+    <tr><th>Y좌표</th><td><%=openApi.getKey().getLAT()%></td></tr>
+    <tr><th>X좌표</th><td><%=openApi.getKey().getLNT()%></td></tr>
     <tr><th>작업일자</th><td><%=openApi.getKey().getWORK_DTTM()%></td></tr>
 <%
     }
