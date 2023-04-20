@@ -40,10 +40,10 @@ public class WifiListDbService {
             // 쿼리 실행
             sql = "SELECT *,\n" +
                     "\n" +
-                    "\t(6371*ACOS(COS(RADIANS('37.4831154'))\n" +
+                    "\t(6371*ACOS(COS(RADIANS(?))\n" +
                     "    \t*COS(RADIANS(LAT))\n" +
-                    "        *COS(radians(LNT)-RADIANS('126.798553'))\n" +
-                    "        +SIN(RADIANS('37.4831154'))*SIN(RADIANS(LAT))))\n" +
+                    "        *COS(radians(LNT)-RADIANS(?))\n" +
+                    "        +SIN(RADIANS(?))*SIN(RADIANS(LAT))))\n" +
                     "\tAS DISTANCE\n" +
                     "\n" +
                     "FROM wifitable order by DISTANCE limit 20";
@@ -51,6 +51,10 @@ public class WifiListDbService {
             prepeaedStatement = connection.prepareStatement(sql);
 
             rs = prepeaedStatement.executeQuery();
+
+            prepeaedStatement.setDouble(1, lat);
+            prepeaedStatement.setDouble(2, lnt);
+            prepeaedStatement.setDouble(3, lat);
 
 //            PreparedStatement preparedStatement = null; 주로 이거 사용
 //            CallableStatement callableStatement = null;
