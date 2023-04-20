@@ -50,12 +50,13 @@ public class WifiListDbService {
 
             prepeaedStatement = connection.prepareStatement(sql);
 
-            rs = prepeaedStatement.executeQuery();
+
 
             prepeaedStatement.setDouble(1, lat);
             prepeaedStatement.setDouble(2, lnt);
             prepeaedStatement.setDouble(3, lat);
 
+            rs = prepeaedStatement.executeQuery();
 //            PreparedStatement preparedStatement = null; 주로 이거 사용
 //            CallableStatement callableStatement = null;
 
