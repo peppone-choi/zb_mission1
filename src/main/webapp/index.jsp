@@ -44,8 +44,8 @@
         <th style="text-align:center">설치년도</th>
         <th style="text-align:center">실내외구분</th>
         <th style="text-align:center">WIFI접속환경</th>
-        <th style="text-align:center">X좌표</th>
         <th style="text-align:center">Y좌표</th>
+        <th style="text-align:center">X좌표</th>
         <th style="text-align:center">작업일자</th>
     </tr>
 <%
